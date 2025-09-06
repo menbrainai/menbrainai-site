@@ -1,0 +1,4 @@
+baseURL = "https://menbrainai.com/"
+languageCode = "en-us"
+title = "MenbrainAI"
+paginate = 10
