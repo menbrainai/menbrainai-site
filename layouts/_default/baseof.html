@@ -1,10 +1,24 @@
 <!doctype html><html lang="en"><head>
-<meta name="google-site-verification" content="_825SWbljPy7qlHXKPTQZUyjkWvz9-60Y-BjQ_GXSbI">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}MenbrainAI{{ else }}{{ .Title }} | MenbrainAI{{ end }}</title>
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
+<meta name="google-site-verification" content="_825SWbljPy7qlHXKPTQZUyjkWvz9-60Y-BjQ_GXSbI">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rubik+Glitch&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/styles.css">
+
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}">
+{{ with .Params.featuredImage }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+
+{{ with .Site.Params.ga4 }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ . }}');</script>
+{{ end }}
 </head><body>
 <main class="overlay"><div class="content">
 {{ block "main" . }}{{ end }}
