@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ with .Site.Params.home_seo_title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 <link rel="canonical" href="{{ .Permalink }}">
 <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}">
 <meta name="google-site-verification" content="_825SWbljPy7qlHXKPTQZUyjkWvz9-60Y-BjQ_GXSbI">

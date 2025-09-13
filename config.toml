@@ -1,6 +1,9 @@
+# keep your existing values
 baseURL = "https://menbrainai.com/"
 languageCode = "en-us"
 title = "MenbrainAI"
 paginate = 10
+
 [params]
   ga4 = "G-H9L5E6FSD6"
+  home_seo_title = "MenbrainAI – The AI Horror Story Generator You’ve Been Waiting For"  # includes "ai horror"
