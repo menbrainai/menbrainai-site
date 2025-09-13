@@ -8,6 +8,19 @@ draft: false
 
 # Ethics in AI Horror: Moral Questions for Sci-Fi Creators
 
-Disclose, consent, credit, provenance. Offer intensity controls. Audit data and likeness use. On-device where possible.
+## Separating Method from Message  
+If AI speeds pre-viz, say so. If it shapes plot, own it.
 
-See also: [Deepfake Horror](/deepfake-ai-horror) · [Algorithmic Fear](/algorithmic-fear)
+## Ethical Dilemmas in Immersive Experiences  
+VR and AR can overwhelm. Offer intensity controls, session breaks, and opt-outs.
+
+## Intensity Sliders, Aftercare, Debriefs  
+Include comfort “rewinds” and content warnings before entry.
+
+## Creator Responsibility and Due Diligence  
+Audit datasets. Avoid living artists’ signatures. Respect likeness rights.
+
+## Conclusion: Balancing Fear and Responsibility  
+AI ethics horror lands hardest when creators respect audiences and sources. 
+
+See also: [Deepfake Horror](/deepfake-ai-horror), [Algorithmic Fear](/algorithmic-fear)

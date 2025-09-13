@@ -2,7 +2,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ with .Site.Params.home_seo_title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 <link rel="canonical" href="{{ .Permalink }}">
-<meta name="description" content="{{ if .IsHome }}{{ default \"Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now.\" .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 155 }}{{ end }}{{ end }}"><!-- md-home v4 -->
+<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 155 }}{{ end }}{{ end }}">
 <meta name="google-site-verification" content="_825SWbljPy7qlHXKPTQZUyjkWvz9-60Y-BjQ_GXSbI">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Rubik+Glitch&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:description" content="{{ if .IsHome }}{{ default \"Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now.\" .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}{{ end }}">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}">
 {{ with .Params.featuredImage }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 <meta name="twitter:card" content="summary_large_image">
 
