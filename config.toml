@@ -7,3 +7,4 @@ paginate = 10
 [params]
   ga4 = "G-H9L5E6FSD6"
   home_seo_title = "MenbrainAI – The AI Horror Story Generator You’ve Been Waiting For"  # includes "ai horror"
+  home_meta_description = "Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now."
