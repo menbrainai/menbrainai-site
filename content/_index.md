@@ -7,6 +7,11 @@ description: "Explore MenbrainAI, an AI platform for spine-chilling horror stori
 
 AI horror is the focus here. MenbrainAI generates unnerving short-form stories and visuals with machine-driven patterns. If you want modern **ai horror** that blends glitchcore and analog textures, start below.
 
+<div class="cta-wrap">
+  <a class="cta-button" href="/ebook">Get the Free Ebook</a>
+</div>
+
+
 ## Why AI Horror Is the Next Big Genre
 Short, looping structures. Uncanny phrasing. Synthetic pacing that feels wrong in the right way.
 
