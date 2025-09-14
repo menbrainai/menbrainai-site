@@ -18,6 +18,44 @@
 {{ end }}
 
 <link rel="stylesheet" href="/css/styles.css">
+
+<!-- JSON-LD: WebSite -->
+<script type="application/ld+json">
+{{- $website := dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" .Site.Title
+  "url" .Site.BaseURL
+  "description" (or .Site.Params.home_meta_description .Site.Title)
+-}}
+{{ $website | jsonify }}
+</script>
+
+{{ if .IsPage }}
+  {{- $atype := cond (eq .Section "blog") "BlogPosting" "Article" -}}
+  {{- $desc := or .Description (.Summary | plainify | truncate 180) -}}
+  {{- $img := "" -}}
+  {{- with .Params.featuredImage }}{{ $img = (absURL .) }}{{ end -}}
+  {{- $published := "" -}}{{ with .PublishDate }}{{ $published = .Format "2006-01-02" }}{{ end -}}
+  {{- $modified  := "" -}}{{ with .Lastmod }}{{ $modified  = .Format "2006-01-02" }}{{ end -}}
+  {{- $author := dict "@type" "Organization" "name" .Site.Title -}}
+  {{- $article := dict
+      "@context" "https://schema.org"
+      "@type" $atype
+      "headline" .Title
+      "url" .Permalink
+      "description" $desc
+      "datePublished" $published
+      "dateModified"  $modified
+      "author" (slice $author)
+  -}}
+  {{- if $img }}{{ $article = merge $article (dict "image" (slice $img)) }}{{ end -}}
+  <!-- JSON-LD: Article/BlogPosting -->
+  <script type="application/ld+json">
+  {{ $article | jsonify }}
+  </script>
+{{ end }}
+
 </head><body>
 <main class="overlay"><div class="content">
 {{ block "main" . }}{{ end }}
