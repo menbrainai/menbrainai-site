@@ -4,13 +4,27 @@
 <title>{{ if .IsHome }}{{ with .Site.Params.home_seo_title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 <link rel="canonical" href="{{ .Permalink }}">
 
-<meta name="description" content="{{ if .IsHome }}{{ default "Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now." .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 155 }}{{ end }}{{ end }}"><!-- md-home v5 -->
+<meta name="description" content="{{ if .IsHome }}{{ default "Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now." .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 155 }}{{ end }}{{ end }}">
 
+<!-- ✅ Open Graph (Pinterest, Medium, etc.) -->
+{{ $ogimg := "/images/home/ai-horror-cyber-woman.webp" }}
 <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:description" content="{{ if .IsHome }}{{ default "Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now." .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}{{ end }}">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="{{ $ogimg }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- ✅ Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- ✅ Web App Manifest -->
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#000000">
 
 {{ with .Site.Params.ga4 }}
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
