@@ -1,4 +1,45 @@
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=7">
-<link rel="icon" type="image/x-icon" href="/favicon.ico?v=7">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=7">
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ with .Site.Params.home_seo_title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="description" content="{{ if .IsHome }}{{ default "Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now." .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 155 }}{{ end }}{{ end }}"><!-- md-home v5 -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:type" content="website"><meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:description" content="{{ if .IsHome }}{{ default "Explore MenbrainAI, an AI platform for spine-chilling horror stories. Enter the world of ai horror now." .Site.Params.home_meta_description }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}{{ end }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+{{ with .Site.Params.ga4 }}<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{ . }}')</script>{{ end }}
+<link rel="stylesheet" href="/css/styles.css">
+
+<!-- JSON-LD: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MenbrainAI",
+  "url": "https://menbrainai.com",
+  "description": "AI horror story generator using artificial intelligence to create terrifying tales.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MenbrainAI",
+    "url": "https://menbrainai.com",
+    "sameAs": [
+      "https://www.pinterest.co.uk/menbrainai/",
+      "https://medium.com/@menbrainai"
+    ]
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://menbrainai.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head><body>
+<main class="overlay"><div class="content">
+{{ block "main" . }}{{ end }}
+</div></main>
+</body></html>
