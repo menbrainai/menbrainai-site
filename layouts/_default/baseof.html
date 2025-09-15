@@ -1,8 +1,83 @@
-<!-- SEO title -->
-<title>
-{{- if .IsHome -}}
-MenbrainAI – The AI Horror Story Generator You’ve Been Waiting For
-{{- else -}}
-{{ .Title }} | MenbrainAI
-{{- end -}}
-</title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO title -->
+  <title>
+  {{ if .IsHome }}
+    {{ .Site.Params.home_seo_title }}
+  {{ else }}
+    {{ .Title }} | {{ .Site.Title }}
+  {{ end }}
+  </title>
+
+  <!-- Meta description -->
+  <meta name="description" content="{{ if .IsHome }}
+    {{ .Site.Params.home_meta_description }}
+  {{ else }}
+    {{ with .Description }}{{ . | plainify | truncate 160 }}{{ else }}{{ .Summary | plainify | truncate 160 }}{{ end }}
+  {{ end }}">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- Open Graph (Pinterest, Medium, etc.) -->
+  {{ $ogimg := "/images/home/ai-horror-cyber-woman.webp" }}
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+  <meta property="og:description" content="{{ if .IsHome }}
+    {{ .Site.Params.home_meta_description }}
+  {{ else }}
+    {{ with .Description }}{{ . | plainify | truncate 200 }}{{ else }}{{ .Summary | plainify | truncate 200 }}{{ end }}
+  {{ end }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ $ogimg }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1">
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MenbrainAI",
+    "url": "https://menbrainai.com",
+    "description": "AI horror story generator using artificial intelligence to create terrifying tales.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MenbrainAI",
+      "url": "https://menbrainai.com"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://menbrainai.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <main class="overlay">
+    <div class="content">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+
+  {{/* Optional footer partial, uncomment if you created it
+  {{ partial "footer.html" . }}
+  */}}
+</body>
+</html>
